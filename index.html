@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>LuckTap</title>
+<style>
+body {
+  text-align: center;
+  font-family: Arial;
+  background: #111;
+  color: white;
+}
+
+button {
+  font-size: 40px;
+  padding: 20px 40px;
+  border-radius: 15px;
+  border: none;
+  background: gold;
+}
+
+#result {
+  margin-top: 30px;
+  font-size: 30px;
+  height: 60px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>LuckTap</h1>
+
+<button onclick="gacha()">ガチャる</button>
+
+<div id="result"></div>
+
+<script>
+function gacha() {
+  let resultDiv = document.getElementById("result");
+
+  resultDiv.innerText = "・・・";
+
+  setTimeout(() => {
+    resultDiv.innerText = "✨";
+
+    setTimeout(() => {
+      resultDiv.innerText = "✨✨✨";
+
+      setTimeout(() => {
+
+        let r = Math.random();
+        let text = "";
+
+        if (r < 0.6) {
+          text = "+10コイン";
+        } else if (r < 0.9) {
+          text = "✨ +100コイン！";
+        } else if (r < 0.99) {
+          text = "🔥 +300コイン！！";
+        } else {
+          text = "💎 ダイヤGET！！！";
+        }
+
+        resultDiv.innerText = text;
+
+      }, 700);
+
+    }, 500);
+
+  }, 400);
+}
+</script>
+
+</body>
+</html>
